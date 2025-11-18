@@ -2,8 +2,14 @@ public class DicePanel extends Panel {
 
     public DicePanel() {
         super(19, 13, 6, 11);
-        drawPanel(Assets.DieFaces.SIX.getFace());
-        System.out.println(Assets.DieFaces.SIX.getFace());
+        drawPanel(Assets.DieFaces.TWO.getFace(), 1, 1);
+        drawPanel(Assets.DieFaces.FIVE.getFace(),6, 3); // Y + 3 ,
+    }
+
+    public void updateDice(Dice dice) {
+        for (int i: dice.getDice()) {
+
+        }
     }
 
 

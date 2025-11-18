@@ -7,13 +7,13 @@ public class Assets {
 
 
         ONE(new char[][] {
-                {spot, block, spot}, {block, spot, block}, {spot, block, spot}
+                {block, block, block}, {block, spot, block}, {block, block, block}
         }),
         TWO(new char[][] {
                 {block,block,spot}, {block,block, block}, {spot, block, block}
         }),
         THREE(new char[][]{
-                {block,block,spot}, {block,block, block}, {spot, block, block}
+                {block,block,spot}, {block,spot, block}, {spot, block, block}
         }),
         FOUR(new char[][]{
                 {spot, block, spot}, {block, block, block}, {spot, block, spot}

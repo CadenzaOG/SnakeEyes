@@ -57,6 +57,7 @@ public class SnakeEyes implements Screen {
     public void updatePlayerPanels(ArrayList<PlayerPanel> p ) {
         for (PlayerPanel pl: p) {
             pl.setColor(turn);
+            pl.setScore();
         }
 
 
@@ -137,7 +138,11 @@ public class SnakeEyes implements Screen {
     @Override
     public Screen respondToUserInput(KeyEvent key) {
        switch (key.getKeyCode()) {
-           case KeyEvent.VK_ENTER: nextPlayerTurn(); updatePlayerPanels(playerPanels);
+           case KeyEvent.VK_ENTER: {
+               nextPlayerTurn();
+               players.get(turn).incrementScore();
+               updatePlayerPanels(playerPanels);
+           }
        }
         return this;
     }

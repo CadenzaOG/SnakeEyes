@@ -16,14 +16,18 @@ public abstract class Panel {
         this.isUpdated = true;
     }
 
-    public void drawPanel(char[][] asset) {
+    public void drawPanel(char[][] asset, int posX, int posY) {
         for (int i = 0; i < asset.length; i++) {
             for (int j = 0; j < asset[i].length; j++) {
                 Cell cell = new Cell();
                 cell.setGlyph(asset[i][j]);
-                content[i][j] = cell;
+                content[i + posY][j + posX] = cell;
             }
         }
+    }
+
+    public void drawPanel(char[][] asset) {
+       drawPanel(asset, 0,0);
     }
 
     public int getHeight() {

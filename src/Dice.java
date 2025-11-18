@@ -5,15 +5,7 @@ import java.util.Collections;
 import java.util.Random;
 
 
-public class Dice implements Printable {
-
-    private static final String BAR = "+-------+";
-    private static final String LSE = "|  ";
-    private static final String LSF = "| o";
-    private static final String RSE = "  |";
-    private static final String RSF = "o |";
-    private static final String CE = "   ";
-    private static final String CF = " o ";
+public class Dice {
 
     private int[] dice;
     private Random roll;
@@ -33,12 +25,6 @@ public class Dice implements Printable {
         }
     }
 
-    public void printDice() {
-        for (String s : this.render()) {
-            System.out.println(s);
-        }
-    }
-
     public int[] getDice() {
         return dice;
     }
@@ -47,10 +33,33 @@ public class Dice implements Printable {
         return Arrays.stream(dice).sum();
     }
 
+    /*private static final String BAR = "+-------+";
+    private static final String LSE = "|  ";
+    private static final String LSF = "| o";
+    private static final String RSE = "  |";
+    private static final String RSF = "o |";
+    private static final String CE = "   ";
+    private static final String CF = " o ";
+
+
+     */
+    /*
+
+    public void printDice() {
+        for (String s : this.render()) {
+            System.out.println(s);
+        }
+    }
+
+     */
+
+
+
     /*
 
      */
 
+    /*
     private String[] buildDieFace(int value) {
         String[] diceFace = new String[5];
         diceFace[0] = BAR;
@@ -66,6 +75,8 @@ public class Dice implements Printable {
         return diceFace;
     }
 
+
+
     public String[] render() {
         String[] dieOne = buildDieFace(dice[0]);
         String[] dieTwo = buildDieFace(dice[1]);
@@ -76,7 +87,7 @@ public class Dice implements Printable {
         return output;
     }
 
-
+     */
 
 }
 

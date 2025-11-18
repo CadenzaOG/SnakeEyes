@@ -24,7 +24,7 @@ import javax.swing.JFrame;
         public Main() {
             super();
             terminal = new AsciiPanel(62, 25);
-            terminal.setAsciiFont(AsciiFont.CP437_16x16);
+            terminal.setAsciiFont(AsciiFont.CP437_12x12);
             add(terminal);
             pack();
             screen = new SnakeEyes(terminal.getHeightInCharacters(), terminal.getWidthInCharacters());
