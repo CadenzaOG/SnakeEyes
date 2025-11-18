@@ -45,7 +45,11 @@ public class SnakeEyes implements Screen {
         playerPanels.add(playerTwopanel);
         playerOnePanel.setColor(turn);
         playerTwopanel.setColor(turn);
+        DicePanel dicePanel = new DicePanel();
+        panels.add(dicePanel);
         renderPanels(panels);
+
+
         //drawPanel(logo, 2, 1);
         // drawPanel(gameBoard, 7, 12);
     }

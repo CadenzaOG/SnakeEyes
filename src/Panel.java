@@ -1,5 +1,3 @@
-import jdk.jshell.execution.Util;
-
 public abstract class Panel {
 
     protected int x;

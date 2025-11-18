@@ -47,6 +47,10 @@ public class Dice implements Printable {
         return Arrays.stream(dice).sum();
     }
 
+    /*
+
+     */
+
     private String[] buildDieFace(int value) {
         String[] diceFace = new String[5];
         diceFace[0] = BAR;

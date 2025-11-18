@@ -1,4 +1,41 @@
 public class Assets {
+
+    private static final char block = (char) 219; // █
+    private static final char spot = (char) 8; // ◘
+
+    public enum DieFaces {
+
+
+        ONE(new char[][] {
+                {spot, block, spot}, {block, spot, block}, {spot, block, spot}
+        }),
+        TWO(new char[][] {
+                {block,block,spot}, {block,block, block}, {spot, block, block}
+        }),
+        THREE(new char[][]{
+                {block,block,spot}, {block,block, block}, {spot, block, block}
+        }),
+        FOUR(new char[][]{
+                {spot, block, spot}, {block, block, block}, {spot, block, spot}
+        }),
+        FIVE(new char[][]{
+                {spot, block, spot}, {block, spot, block}, {spot, block, spot}
+        }),
+        SIX(new char[][]{
+                {spot, block, spot}, {spot, block, spot}, {spot, block, spot}
+        });
+
+        private final char[][] face;
+
+        DieFaces(char[][] face) { this.face = face; }
+
+        public char[][] getFace() {
+            return face;
+        }
+
+        }
+
+
     public static final String[] snakeEyesLogo = new String[]{
             " __  __  __  ___  __ __  ____     ____ _  _  ____  __ ",
             "(( \\ ||\\ || // \\\\ || // ||       ||    \\\\// ||    (( \\",
