@@ -1,3 +1,5 @@
+package UI;
+
 import asciiPanel.AsciiPanel;
 
 import java.awt.event.KeyEvent;

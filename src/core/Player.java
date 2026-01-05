@@ -1,3 +1,5 @@
+package core;
+
 public class Player {
 
     private int totalScore;

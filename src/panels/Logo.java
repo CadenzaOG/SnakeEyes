@@ -1,4 +1,9 @@
-public class Logo extends Panel{
+package panels;
+
+import assets.Assets;
+import utils.Utils;
+
+public class Logo extends Panel {
 
     private final char[][] logo = Utils.addBorders(Assets.snakeEyesLogo); // 1 2
 

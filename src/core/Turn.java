@@ -1,5 +1,7 @@
+package core;
+
 public enum Turn {
-    PLAYER_ONE("Player one"), PLAYER_TWO("Player two");
+    PLAYER_ONE("core.Player one"), PLAYER_TWO("core.Player two");
 
     private final String displayName;
 

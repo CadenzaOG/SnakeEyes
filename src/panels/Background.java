@@ -1,4 +1,7 @@
-import java.util.Arrays;
+package panels;
+
+import assets.Assets;
+import utils.Utils;
 
 public class Background extends Panel {
 

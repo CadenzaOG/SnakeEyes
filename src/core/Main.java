@@ -1,19 +1,19 @@
-/*
+package core;/*
     Author: Sean Boa
     Year: 2025
     SNAKE EYES
 
  */
 
-import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.HashMap;
-import java.util.Random;
 import java.util.Scanner;
+
+import UI.Screen;
+import UI.SnakeEyes;
 import asciiPanel.AsciiFont;
 import asciiPanel.AsciiPanel;
-import jdk.jshell.execution.Util;
+
 import javax.swing.JFrame;
 
  public class Main extends JFrame implements KeyListener {
@@ -24,7 +24,7 @@ import javax.swing.JFrame;
         public Main() {
             super();
             terminal = new AsciiPanel(62, 25);
-            terminal.setAsciiFont(AsciiFont.CP437_12x12);
+            terminal.setAsciiFont(AsciiFont.CP437_10x10);
             add(terminal);
             pack();
             screen = new SnakeEyes(terminal.getHeightInCharacters(), terminal.getWidthInCharacters());

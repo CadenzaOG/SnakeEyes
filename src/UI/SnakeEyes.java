@@ -1,14 +1,16 @@
-import asciiPanel.AsciiCharacterData;
-import asciiPanel.AsciiPanel;
+package UI;
 
-import java.awt.*;
+import asciiPanel.AsciiPanel;
+import assets.Assets;
+import core.Player;
+import core.Turn;
+import panels.*;
+import utils.Cell;
+import utils.Utils;
+
 import java.awt.event.KeyEvent;
-import java.lang.reflect.Array;
-import java.security.Key;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Scanner;
-import java.awt.event.KeyListener;
 
 public class SnakeEyes implements Screen {
 
@@ -102,7 +104,7 @@ public class SnakeEyes implements Screen {
         If either die = 1 turn is over and accumulated points lost.
         If both die = 1 player losts all points accumulated in game and the turn is over.
         Sum points together and add to total for turn
-        Player chooses if they wish to roll again.
+        core.Player chooses if they wish to roll again.
 
     First to 100 wins.
 

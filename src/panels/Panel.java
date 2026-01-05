@@ -1,3 +1,9 @@
+package panels;
+
+
+import utils.Cell;
+import utils.Utils;
+
 public abstract class Panel {
 
     protected int x;

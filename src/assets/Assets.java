@@ -1,3 +1,5 @@
+package assets;
+
 public class Assets {
 
     private static final char block = (char) 219; // █
@@ -7,10 +9,14 @@ public class Assets {
 
 
         ONE(new char[][] {
-                {block, block, block}, {block, spot, block}, {block, block, block}
+                {block, block, block},
+                {block, spot, block},
+                {block, block, block}
         }),
         TWO(new char[][] {
-                {block,block,spot}, {block,block, block}, {spot, block, block}
+                {block,block,spot},
+                {block,block, block},
+                {spot, block, block}
         }),
         THREE(new char[][]{
                 {block,block,spot}, {block,spot, block}, {spot, block, block}

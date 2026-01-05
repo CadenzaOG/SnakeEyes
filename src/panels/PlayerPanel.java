@@ -1,5 +1,8 @@
-import asciiPanel.AsciiCharacterData;
+package panels;
+
 import asciiPanel.AsciiPanel;
+import core.Player;
+import core.Turn;
 
 import java.awt.*;
 
