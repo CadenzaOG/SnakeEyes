@@ -1,5 +1,8 @@
 package panels;
 
+import assets.Assets;
+import core.Dice;
+
 public class DicePanel extends Panel {
 
     public DicePanel() {
