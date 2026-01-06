@@ -23,6 +23,7 @@ public class SnakeEyes implements Screen {
     private Player currentPlayer;
     private ArrayList<Panel> panels;
     private ArrayList<PlayerPanel> playerPanels;
+    private DicePanel dicePanel;
 
 
     public SnakeEyes(int h, int w) {
@@ -35,6 +36,7 @@ public class SnakeEyes implements Screen {
             players.put(t, new Player(t));
         }
         this.turn = Turn.PLAYER_ONE;
+        this.currentPlayer = players.get(Turn.PLAYER_ONE);
         Logo logo = new Logo(2, 1, 10, 58);
         Background bg = new Background(7, 12, 9, 49);
         PlayerPanel playerOnePanel = new PlayerPanel(32,13,3,10, players.get(Turn.PLAYER_ONE));
@@ -47,9 +49,10 @@ public class SnakeEyes implements Screen {
         playerPanels.add(playerTwopanel);
         playerOnePanel.setColor(turn);
         playerTwopanel.setColor(turn);
-        DicePanel dicePanel = new DicePanel();
+        this.dicePanel = new DicePanel();
         panels.add(dicePanel);
         renderPanels(panels);
+        ;
 
 
         //drawPanel(logo, 2, 1);
@@ -61,8 +64,6 @@ public class SnakeEyes implements Screen {
             pl.setColor(turn);
             pl.setScore();
         }
-
-
     }
 
     public void renderPanels(ArrayList<Panel> panels) {
@@ -97,18 +98,7 @@ public class SnakeEyes implements Screen {
         }
 
 
-            /*
 
-    TURN:
-        Roll dice
-        If either die = 1 turn is over and accumulated points lost.
-        If both die = 1 player losts all points accumulated in game and the turn is over.
-        Sum points together and add to total for turn
-        core.Player chooses if they wish to roll again.
-
-    First to 100 wins.
-
- */
 
 
     }
@@ -141,6 +131,8 @@ public class SnakeEyes implements Screen {
     public Screen respondToUserInput(KeyEvent key) {
        switch (key.getKeyCode()) {
            case KeyEvent.VK_ENTER: {
+               currentPlayer.roll();
+               dicePanel.updateDice(currentPlayer.getDice());
                nextPlayerTurn();
                players.get(turn).incrementScore();
                updatePlayerPanels(playerPanels);
@@ -148,17 +140,7 @@ public class SnakeEyes implements Screen {
        }
         return this;
     }
-    /*
 
-
-    public void printLogo() {
-
-        for (String s: logo) {
-            System.out.println(s);
-        }
-    }
-
-     */
 
 
     }

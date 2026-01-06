@@ -19,6 +19,10 @@ public class Player {
         return dice;
     }
 
+    public Dice getDice() {
+        return dice;
+    }
+
     public void incrementScore() {
         totalScore += 2;
     }
