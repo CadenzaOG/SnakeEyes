@@ -18,7 +18,7 @@ public abstract class Panel {
         this.y = y;
         this.height = height;
         this.width = width;
-        content = Utils.newEmptyGrid(height, width);
+        clearPanel();
         this.isUpdated = true;
     }
 
@@ -30,6 +30,10 @@ public abstract class Panel {
                 content[i + posY][j + posX] = cell;
             }
         }
+    }
+
+    public void clearPanel() {
+        content = Utils.newEmptyGrid(height, width);
     }
 
     public void drawPanel(char[][] asset) {

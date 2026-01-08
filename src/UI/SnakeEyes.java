@@ -52,8 +52,6 @@ public class SnakeEyes implements Screen {
         this.dicePanel = new DicePanel();
         panels.add(dicePanel);
         renderPanels(panels);
-        ;
-
 
         //drawPanel(logo, 2, 1);
         // drawPanel(gameBoard, 7, 12);
@@ -137,6 +135,7 @@ public class SnakeEyes implements Screen {
                players.get(turn).incrementScore();
                updatePlayerPanels(playerPanels);
            }
+           renderPanels(panels);
        }
         return this;
     }
