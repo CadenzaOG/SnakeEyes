@@ -2,8 +2,7 @@ package UI;
 
 import asciiPanel.AsciiPanel;
 import assets.Assets;
-import core.Player;
-import core.Turn;
+import core.*;
 import panels.*;
 import utils.Cell;
 import utils.Utils;
@@ -12,7 +11,7 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class SnakeEyes implements Screen {
+public class SnakeEyes implements Screen, GameListener {
 
 
     private Cell[][] display;
@@ -24,10 +23,14 @@ public class SnakeEyes implements Screen {
     private ArrayList<Panel> panels;
     private ArrayList<PlayerPanel> playerPanels;
     private DicePanel dicePanel;
+    private GameController gameController;
 
 
     public SnakeEyes(int h, int w) {
         // Generate players, set first turn to player one
+
+        this.gameController = new SnakeEyesController();
+        gameController.setStateListener(this);
         display = Utils.newEmptyGrid(h, w);
         playerPanels = new ArrayList<>();
         panels = new ArrayList<>();
@@ -55,6 +58,10 @@ public class SnakeEyes implements Screen {
 
         //drawPanel(logo, 2, 1);
         // drawPanel(gameBoard, 7, 12);
+    }
+
+    private void initPanels() {
+
     }
 
     public void updatePlayerPanels(ArrayList<PlayerPanel> p ) {
@@ -94,11 +101,6 @@ public class SnakeEyes implements Screen {
         while (turn == currentPlayer.getPlayer()) {
 
         }
-
-
-
-
-
     }
 
 
