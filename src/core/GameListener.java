@@ -2,8 +2,6 @@ package core;
 
 public interface GameListener {
 
-    private void onStateChange() {
-
-    }
+    public void onStateChange(GameController controller);
 
 }

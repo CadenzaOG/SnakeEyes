@@ -92,17 +92,6 @@ public class SnakeEyes implements Screen, GameListener {
         }
     }
 
-    public void start() {
-
-        //printLogo();
-        currentPlayer = players.get(turn);
-
-        turn:
-        while (turn == currentPlayer.getPlayer()) {
-
-        }
-    }
-
 
     public void roll() {
         currentPlayer.roll();
@@ -142,7 +131,9 @@ public class SnakeEyes implements Screen, GameListener {
         return this;
     }
 
-
+    public void onStateChange(GameController controller) {
 
     }
+
+}
 

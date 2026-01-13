@@ -18,6 +18,7 @@ public class SnakeEyesController implements GameController {
         this.currentTurn = Turn.PLAYER_ONE;
     }
 
+
     public Turn getCurrentTurn() {
         return currentTurn;
     }
@@ -32,6 +33,12 @@ public class SnakeEyesController implements GameController {
 
     public void hold() {
 
+    }
+
+    public void notifyListener() {
+        if (listener != null) {
+            listener.onStateChange(this);
+        }
     }
 
     @Override
