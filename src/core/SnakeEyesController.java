@@ -19,6 +19,11 @@ public class SnakeEyesController implements GameController {
     }
 
 
+    public Player getPlayer(Turn turn) {
+        return players.get(turn);
+    }
+
+
     public Turn getCurrentTurn() {
         return currentTurn;
     }

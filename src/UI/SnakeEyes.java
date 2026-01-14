@@ -17,56 +17,51 @@ public class SnakeEyes implements Screen, GameListener {
     private Cell[][] display;
     private final char[][] gameBoard = Utils.stringArraytoCharArray(Assets.gameBoard);
     private final char[][] logo = Utils.addBorders(Assets.snakeEyesLogo);
-    private HashMap<Turn, Player> players;
-    private Turn turn;
-    private Player currentPlayer;
     private ArrayList<Panel> panels;
     private ArrayList<PlayerPanel> playerPanels;
     private DicePanel dicePanel;
-    private GameController gameController;
+    private SnakeEyesController gameController;
 
 
     public SnakeEyes(int h, int w) {
-        // Generate players, set first turn to player one
-
         this.gameController = new SnakeEyesController();
         gameController.setStateListener(this);
         display = Utils.newEmptyGrid(h, w);
-        playerPanels = new ArrayList<>();
-        panels = new ArrayList<>();
-        players = new HashMap<>();
-        for (Turn t : Turn.values()) {
-            players.put(t, new Player(t));
-        }
-        this.turn = Turn.PLAYER_ONE;
-        this.currentPlayer = players.get(Turn.PLAYER_ONE);
-        Logo logo = new Logo(2, 1, 10, 58);
-        Background bg = new Background(7, 12, 9, 49);
-        PlayerPanel playerOnePanel = new PlayerPanel(32,13,3,10, players.get(Turn.PLAYER_ONE));
-        PlayerPanel playerTwopanel = new PlayerPanel(32, 17, 3, 10, players.get(Turn.PLAYER_TWO));
-        panels.add(logo);
-        panels.add(bg);
-        panels.add(playerOnePanel);
-        panels.add(playerTwopanel);
-        playerPanels.add(playerOnePanel);
-        playerPanels.add(playerTwopanel);
-        playerOnePanel.setColor(turn);
-        playerTwopanel.setColor(turn);
-        this.dicePanel = new DicePanel();
-        panels.add(dicePanel);
-        renderPanels(panels);
+
 
         //drawPanel(logo, 2, 1);
         // drawPanel(gameBoard, 7, 12);
     }
 
     private void initPanels() {
-
+        playerPanels = new ArrayList<>();
+        panels = new ArrayList<>();
+        Logo logo = new Logo(2, 1, 10, 58);
+        Background bg = new Background(7, 12, 9, 49);
+        PlayerPanel playerOnePanel = new PlayerPanel(
+                32,13,3,10,
+                gameController.getPlayer(Turn.PLAYER_ONE)
+        );
+        PlayerPanel playerTwopanel = new PlayerPanel(
+                32, 17, 3, 10,
+                gameController.getPlayer(Turn.PLAYER_TWO)
+        );
+        panels.add(logo);
+        panels.add(bg);
+        panels.add(playerOnePanel);
+        panels.add(playerTwopanel);
+        playerPanels.add(playerOnePanel);
+        playerPanels.add(playerTwopanel);
+        playerOnePanel.setColor(gameController.getCurrentTurn());
+        playerTwopanel.setColor(gameController.getCurrentTurn());
+        this.dicePanel = new DicePanel();
+        panels.add(dicePanel);
+        renderPanels(panels);
     }
 
     public void updatePlayerPanels(ArrayList<PlayerPanel> p ) {
         for (PlayerPanel pl: p) {
-            pl.setColor(turn);
+            pl.setColor(gameController.getCurrentTurn());
             pl.setScore();
         }
     }
@@ -93,19 +88,6 @@ public class SnakeEyes implements Screen, GameListener {
     }
 
 
-    public void roll() {
-        currentPlayer.roll();
-    }
-
-
-    public void nextPlayerTurn() {
-        if (turn == Turn.PLAYER_ONE) {
-            turn = Turn.PLAYER_TWO;
-        } else {
-            turn = Turn.PLAYER_ONE;
-        }
-    }
-
     @Override
     public void displayOutput(AsciiPanel terminal) {
         for (int height = 0; height < display.length; height++) {
@@ -120,13 +102,8 @@ public class SnakeEyes implements Screen, GameListener {
     public Screen respondToUserInput(KeyEvent key) {
        switch (key.getKeyCode()) {
            case KeyEvent.VK_ENTER: {
-               currentPlayer.roll();
-               dicePanel.updateDice(currentPlayer.getDice());
-               nextPlayerTurn();
-               players.get(turn).incrementScore();
-               updatePlayerPanels(playerPanels);
+
            }
-           renderPanels(panels);
        }
         return this;
     }
