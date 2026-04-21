@@ -21,14 +21,15 @@ public class SnakeEyes implements Screen, GameListener {
     private ArrayList<PlayerPanel> playerPanels;
     private DicePanel dicePanel;
     private SnakeEyesController gameController;
+    private Boolean inputReady;
 
 
     public SnakeEyes(int h, int w) {
         this.gameController = new SnakeEyesController();
         gameController.setStateListener(this);
         display = Utils.newEmptyGrid(h, w);
-
-
+        initPanels();
+        inputReady = true;
         //drawPanel(logo, 2, 1);
         // drawPanel(gameBoard, 7, 12);
     }
@@ -100,12 +101,19 @@ public class SnakeEyes implements Screen, GameListener {
 
     @Override
     public Screen respondToUserInput(KeyEvent key) {
-       switch (key.getKeyCode()) {
-           case KeyEvent.VK_ENTER: {
+        if (inputReady) {
+            switch (key.getKeyCode()) {
+                case KeyEvent.VK_ENTER: {
 
-           }
-       }
+                }
+            }
+            inputReady = false;
+        }
         return this;
+    }
+
+    public void setReady() {
+        inputReady = true;
     }
 
     public void onStateChange(GameController controller) {

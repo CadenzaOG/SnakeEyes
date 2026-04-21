@@ -73,9 +73,6 @@ public class Utils {
                         }
                     }
                 } catch (ArrayIndexOutOfBoundsException e) {
-                    System.out.println("Error at h=" + h + ", w=" + w);
-                    System.out.println("Trying to access: assetRow=" + (h - horizontalPadding - 1) +
-                            ", assetCol=" + (w - verticalPadding - 1));
                     throw e;
                 }
             }

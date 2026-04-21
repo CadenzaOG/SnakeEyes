@@ -21,12 +21,10 @@ public class DicePanel extends Panel {
         int offset = 6;
         for (int i = 0; i < d.length; i++) {
             int x = random.nextInt(3);
-            System.out.println("x = " + x);
             int y = random.nextInt(3) + 1;
             System.out.println("y = " + y);
             if (i == 1) {
                 x += offset;
-                System.out.println("Dice 2 x = " + x);
             }
             drawPanel(Assets.DieFaces.values()[d[i] - 1].getFace(), x, y);
         }

@@ -52,7 +52,7 @@ import javax.swing.JFrame;
 
      @Override
      public void keyReleased(KeyEvent e) {
-
+        screen.setReady();
      }
 
 
